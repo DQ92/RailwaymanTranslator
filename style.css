@@ -1,0 +1,97 @@
+body, html {
+  margin: 0 10%;
+  background: #EEE;
+}
+
+html {
+  height: 90%;
+}
+
+
+h1, p {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0px;
+}
+
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+
+.txt, select, form > div {
+  display: block;
+  margin: 10px auto;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 15px;
+}
+
+.txt {
+  width: 80px;
+}
+
+.img {
+  max-width: 20%;
+  text-align: center;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.muteButton {
+  font-size: 36px !important;
+  width: 200px !important;
+  padding: 5px;
+}
+/*
+select {
+  width: 83%;
+}*/
+
+/*iv.c {
+    width: 50%;
+    border: 1px solid black; 
+}*/
+
+/*form > div {
+  width: 81%;
+}*/
+/*
+.txt, form > div {
+  margin-bottom: 10px;
+  overflow: auto;
+*/
+
+.clearfix {
+  clear: both;
+}
+/*
+label {
+  float: left;
+  width: 10%;
+  line-height: 1.5;
+}*/
+
+.rate-value, .pitch-value {
+  float: right;
+  width: 5%;
+  line-height: 1.5;
+}
+
+#rate, #pitch {
+  float: right;
+  width: 81%;
+}
