@@ -45,11 +45,6 @@ function load() {
 
 function populateVoiceList() {
 	
-	$.getJSON("dict.json", function(json) {
-    	 list = json;
-    	 // console.log(json); // Logs your array
-	});
-
 	load()
 
   voices = synth.getVoices();
