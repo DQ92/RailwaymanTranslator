@@ -71,7 +71,7 @@ function populateVoiceList() {
   if(selectedIndex == 0) {
     alert("Błąd. Brak speakerów");
   } else {
-    alert("Będzie czytał: " + voices[selectedIndex].name);
+    printInfo("Będzie czytał: " + voices[selectedIndex].name);
   }
 
   voice = voices[selectedIndex];
@@ -90,34 +90,14 @@ function myFunction(idx) {
     speakWord(word);
 }
 
+function printInfo(info) {
+    $('#alert-info').text(info);
+}
+
 populateVoiceList();
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
-
-function speak(){
-    if (synth.speaking) {
-    	synth.cancel()
-        console.error('speechSynthesis.speaking');
-        return;
-    }
-    if (inputTxt.value !== '') {
-    var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
-
-    utterThis.onend = function (event) {
-        console.log('SpeechSynthesisUtterance.onend');
-    }
-    utterThis.onerror = function (event) {
-        console.error('SpeechSynthesisUtterance.onerror');
-    }
-    
-    utterThis.voice = voice;
-    utterThis.pitch = pitch.value;
-    utterThis.rate = rate.value;
-    synth.speak(utterThis);
-  }
-}
-
 
 function speakWord(word) {
 	if(!muteBtn.checked) {
@@ -128,8 +108,6 @@ function speakWord(word) {
         console.error('speechSynthesis.speaking');
     }
     var utterThis = new SpeechSynthesisUtterance(word);
-    
-    
     utterThis.voice = voice;
 	utterThis.pitch = pitch.value;
     utterThis.rate = rate.value;
