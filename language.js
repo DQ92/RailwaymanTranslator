@@ -54,20 +54,32 @@ function populateVoiceList() {
 
   voices = synth.getVoices();
   var selectedIndex = 0;
+  alert("Wczytano: " + voices.length + " speakerów.");
   for(i = 0; i < voices.length ; i++) {
     if(voices[i].name == 'Google UK English Female')
     {
-    
+        alert("Będzie czytał: Google UK English Female");
+        selectedIndex = i;  
+        break;
     }
     else if(voices[i].name == 'Google UK English Male')
     {
-    	// selectedIndex = i;
+        alert("Będzie czytał: Google UK English Male");
+    	selectedIndex = i;
+        break;
     }
 	else if(voices[i].name == 'Daniel')
     {
+        alert("Będzie czytał: Daniel");
     	selectedIndex = i;	
+        break;
     }
   }
+
+  if(selectedIndex == 0) {
+    alert("Błąd. Brak speakerów");
+  }
+
   voice = voices[selectedIndex];
 
 
