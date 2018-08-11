@@ -67,9 +67,9 @@ function populateVoiceList() {
         	voiceDanielIndex = i;	
         }
     }
-    if(selectedIndex == 0) {
-        selectedIndex = voiceDanielIndex;
-    }
+    // if(selectedIndex == 0) {
+    //     selectedIndex = voiceDanielIndex;
+    // }
     printInfo("Będzie czytał: " + voices[selectedIndex].name) + " <br>";
     voice = voices[selectedIndex];
 
