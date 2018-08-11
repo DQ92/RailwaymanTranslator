@@ -84,6 +84,13 @@ function populateVoiceList() {
 function buildRow(elem, i) {
 	var table = document.getElementById("table");
 	var row = table.insertRow(i);
+
+    // $("#table").find('tbody')
+    // .append('<th scope='row'>"+(elem.word)+"</th>')
+        // .append('<tr onclick="myFunction('+i+')" id="addr'+(i)+'"></tr>');
+    
+
+
     $('#addr'+ i).html("<th scope='row'>"+(elem.word)+"</th><td>"+(elem.translate)+"</td></th>");
 	$('#table').append('<tr onclick="myFunction('+i+')" id="addr'+(i)+'"></tr>'); 
 }
