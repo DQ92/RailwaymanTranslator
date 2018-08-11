@@ -45,7 +45,7 @@ function load() {
 
 function populateVoiceList() {
 	
-    load()
+  load()
 
   voices = synth.getVoices();
   var selectedIndex = 0;
@@ -53,19 +53,16 @@ function populateVoiceList() {
   for(i = 0; i < voices.length ; i++) {
     if(voices[i].name == 'Google UK English Female')
     {
-        alert("Będzie czytał: Google UK English Female");
         selectedIndex = i;  
         break;
     }
     else if(voices[i].name == 'Google UK English Male')
     {
-        alert("Będzie czytał: Google UK English Male");
     	selectedIndex = i;
         break;
     }
 	else if(voices[i].name == 'Daniel')
     {
-        
     	selectedIndex = i;	
         break;
     }
@@ -79,11 +76,9 @@ function populateVoiceList() {
 
   voice = voices[selectedIndex];
 
-
-	for(i = 0; i < list.length ; i++) {
-		buildRow(list[i], i)
-	}
-// });
+    for(i = 0; i < list.length ; i++) {
+    	buildRow(list[i], i)
+    }
 }
 
 function buildRow(elem, i) {
