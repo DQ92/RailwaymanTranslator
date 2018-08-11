@@ -47,8 +47,6 @@ populateVoiceList();
 
 
 function populateVoiceList() {
-    alert("Test + ", voices.length);
-
     if(voices.length > 1) {
         return;
     }
