@@ -41,11 +41,10 @@ function load() {
     list = JSON.parse(list);
     printInfo("Wszystkich słówek: " + list.length + "<br>");
 }
+load();
 
 
 function populateVoiceList() {
-    load()
-
     voices = synth.getVoices();
     if(voices.length < 1) {
         printInfo("Błąd! Brak speakerów!<br>");
