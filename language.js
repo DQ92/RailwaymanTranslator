@@ -44,28 +44,27 @@ function load() {
 
 
 function populateVoiceList() {
-  load()
+    load()
 
-  voices = synth.getVoices();
-  if(voices.length < 1) {
-    printInfo("Błąd! Brak speakerów");
-    return;
-  }
-  var selectedIndex = 0;
-  alert("Wczytano: " + voices.length + " speakerów i " + list.length + " słów.");
+    voices = synth.getVoices();
+    if(voices.length < 1) {
+        printInfo("Błąd! Brak speakerów!<br>");
+        return;
+    }
+    var selectedIndex = 0;
+    var voiceDanielIndex = 0;
     for(i = 0; i < voices.length ; i++) {
-        if(voices[i].name == 'Google UK English Female') {
-            selectedIndex = i;  
-            break;
-        } else if(voices[i].name == 'Google UK English Male') {
-        	selectedIndex = i;
+        if(voices[i].name == 'Google UK English Male') {
+            selectedIndex = i;
             break;
         } else if(voices[i].name == 'Daniel') {
-        	selectedIndex = i;	
-            break;
+        	voiceDanielIndex = i;	
         }
     }
-    printInfo("Będzie czytał: " + voices[selectedIndex].name) + '\n';
+    if(selectedIndex == 0) {
+        selectedIndex = voiceDanielIndex;
+    }
+    printInfo("Będzie czytał: " + voices[selectedIndex].name) + " <br>";
     voice = voices[selectedIndex];
 
     for(i = 0; i < list.length ; i++) {
@@ -89,7 +88,6 @@ function printInfo(info) {
     $('#alert-info').append(info);
 }
 
-// 
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
