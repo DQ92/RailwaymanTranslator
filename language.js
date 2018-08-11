@@ -36,48 +36,40 @@ var voices = [];
 var list = [];
 var voice = {};
 
-  // Function to 'load JSON' data
 function load() {
 	list = JSON.stringify(data);
     list = JSON.parse(list);
+    printInfo("Wszystkich słówek: " + list.length + "<br>");
 }
 
 
 function populateVoiceList() {
-	
   load()
 
   voices = synth.getVoices();
+  if(voices.length < 1) {
+    printInfo("Błąd! Brak speakerów");
+    return;
+  }
   var selectedIndex = 0;
   alert("Wczytano: " + voices.length + " speakerów i " + list.length + " słów.");
-  for(i = 0; i < voices.length ; i++) {
-    if(voices[i].name == 'Google UK English Female')
-    {
-        selectedIndex = i;  
-        break;
+    for(i = 0; i < voices.length ; i++) {
+        if(voices[i].name == 'Google UK English Female') {
+            selectedIndex = i;  
+            break;
+        } else if(voices[i].name == 'Google UK English Male') {
+        	selectedIndex = i;
+            break;
+        } else if(voices[i].name == 'Daniel') {
+        	selectedIndex = i;	
+            break;
+        }
     }
-    else if(voices[i].name == 'Google UK English Male')
-    {
-    	selectedIndex = i;
-        break;
-    }
-	else if(voices[i].name == 'Daniel')
-    {
-    	selectedIndex = i;	
-        break;
-    }
-  }
-
-  if(selectedIndex == 0) {
-    alert("Błąd. Brak speakerów");
-  } else {
-    printInfo("Będzie czytał: " + voices[selectedIndex].name);
-  }
-
-  voice = voices[selectedIndex];
+    printInfo("Będzie czytał: " + voices[selectedIndex].name) + '\n';
+    voice = voices[selectedIndex];
 
     for(i = 0; i < list.length ; i++) {
-    	buildRow(list[i], i)
+        buildRow(list[i], i);
     }
 }
 
@@ -86,15 +78,18 @@ function buildRow(elem, i) {
 }
 
 function myFunction(idx) {
+    if(voices.length < 1) {
+        populateVoiceList();
+    }
 	var word = list[idx].word;
     speakWord(word);
 }
 
 function printInfo(info) {
-    $('#alert-info').text(info);
+    $('#alert-info').append(info);
 }
 
-populateVoiceList();
+// 
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
@@ -113,7 +108,6 @@ function speakWord(word) {
     utterThis.rate = rate.value;
     synth.speak(utterThis);
 }
-
 
 pitch.onchange = function() {
   pitchValue.textContent = pitch.value;
