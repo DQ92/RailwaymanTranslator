@@ -36,7 +36,6 @@ var voices = [];
 var list = [];
 var voice = {};
 
-alert("TEst");
 
 function load() {
 	list = JSON.stringify(data);
@@ -48,6 +47,8 @@ populateVoiceList();
 
 
 function populateVoiceList() {
+    alert("TEst");
+
     if(voices.length > 1) {
         return;
     }
