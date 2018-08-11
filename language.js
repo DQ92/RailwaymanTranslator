@@ -36,6 +36,8 @@ var voices = [];
 var list = [];
 var voice = {};
 
+alert("TEst");
+
 function load() {
 	list = JSON.stringify(data);
     list = JSON.parse(list);
