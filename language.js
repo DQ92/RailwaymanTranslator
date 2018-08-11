@@ -55,9 +55,11 @@ function populateVoiceList() {
         printInfo("Błąd! Brak speakerów!<br>");
         return;
     }
+
     var selectedIndex = 0;
     var voiceDanielIndex = 0;
     for(i = 0; i < voices.length ; i++) {
+        printInfo(voices[i].name + "<br>");
         if(voices[i].name == 'Google UK English Male') {
             selectedIndex = i;
             break;
