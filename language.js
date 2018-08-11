@@ -23,7 +23,6 @@ data = [
 {"id":"22", "word":"waiting-room", "translate":"poczekalnia","description":""}
 ];
 
-
 var synth = window.speechSynthesis;
 
 var muteBtn = document.querySelector('#mute');
@@ -47,6 +46,7 @@ populateVoiceList();
 
 
 function populateVoiceList() {
+
     if(voices.length > 1) {
         return;
     }
@@ -67,9 +67,9 @@ function populateVoiceList() {
         	voiceDanielIndex = i;	
         }
     }
-    // if(selectedIndex == 0) {
-    //     selectedIndex = voiceDanielIndex;
-    // }
+    if(selectedIndex == 0) {
+        selectedIndex = voiceDanielIndex;
+    }
     printInfo("Będzie czytał: " + voices[selectedIndex].name) + " <br>";
     voice = voices[selectedIndex];
 
